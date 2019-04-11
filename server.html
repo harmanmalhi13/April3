@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <script language="Javascript">
+        var XHobj = false;
+        if(window.XMLHttpRequest)
+        {
+            XHobj = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        else if(window.ActiveXObject){
+            XHobj = new ActiveXObject("Microsoft.XMLHTTP");
+            function fetchdata(datasourcedivID)
+            {
+                if(XHobj)
+                {
+                    XHobj.open("GET",datasource);
+                    XHobj.onreadystatechange=function()
+                    {
+                        if(XHobj.readyState==4 && XHobj.status==200)
+                            document.getElementById(divID).innerHTML=Xobj.responseText;
+                    }
+                }
+            }
+            Xobj.send(null);
+        }
+        </script>
+    </head>
+    <body>
+        <h3>Welcome to AJAAX</h3>
+        <form>
+            <input type="button" value="Fetch Message" onclick="fetchdata('info.txt','myDiv')">
+            <div id="myDiv">
+                <b>AJAX applications are browser and platform independent.</b>
+            </div>
+        </form>
+    </body>
+</html>
